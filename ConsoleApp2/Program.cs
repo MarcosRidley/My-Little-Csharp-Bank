@@ -31,7 +31,11 @@ namespace ConsoleApp2 {
             _saldo -= value + 5;
             }
         }
-        
+
+        public override string ToString() {
+            return $"A conta número {NumeroDaConta} pertence a {NomeDoTitular} e possui saldo de {Saldo}";
+        }
+
 
     }
     class Program {
@@ -48,7 +52,7 @@ namespace ConsoleApp2 {
             char deposit = char.Parse(Console.ReadLine());
             
             if('s'.Equals(deposit)) {
-                Console.Write("Digite o valor do depósito inicial");
+                Console.Write("Digite o valor do depósito inicial ");
                 double initialDepValue = double.Parse(Console.ReadLine());
                 conta = new Conta(accNumber, ownerName, initialDepValue);
             } else {
@@ -68,7 +72,7 @@ namespace ConsoleApp2 {
                 conta.Depositar(val);
                 Console.WriteLine($"Seu novo saldo é de {conta.Saldo} ");
             } else {
-                Console.WriteLine($"Seu saldo final é de {conta.Saldo} ");
+                Console.WriteLine(conta);
                 Console.Write("Abortado pelo usuário");
             }
 
